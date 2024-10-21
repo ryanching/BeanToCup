@@ -7,6 +7,7 @@ import Beans from './components/Beans';
 import Roasts from './components/Roasts';
 import Cups from './components/Cups';
 import HamburgerMenu from './components/HamburgerMenu';
+import Analysis from './components/Analysis';
 
 const App = () => (
   <Provider store={store}>
@@ -18,6 +19,7 @@ const App = () => (
           <Route path="/beans" element={<Beans />} />
           <Route path="/roasts" element={<Roasts />} />
           <Route path="/cups" element={<Cups />} />
+          <Route path="/analysis" element={<Analysis />} />
         </Routes>
       </main>
     </Router>

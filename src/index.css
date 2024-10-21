@@ -95,6 +95,7 @@ main {
   padding-top: 4rem; /* Add padding to ensure content is not overlapped by the hamburger button */
   transition: margin-left 0.3s ease; /* Add transition for smooth shifting */
   text-align: center; /* Center the text */
+  width:100%;
 }
 
 main.shifted {
@@ -182,14 +183,21 @@ footer {
   margin-top: 20px;
 }
 
+.roasts-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  padding-bottom: 1rem;
+}
+
+.roasts-table-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
 .roasts-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 1em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .roasts-table thead tr {
@@ -217,6 +225,8 @@ footer {
   border-bottom: 2px solid #dddddd;
   border-top: 2px solid #dddddd;
 }
+
+
 .ribbon {
   display: flex;
   justify-content: left;
@@ -225,6 +235,8 @@ footer {
   margin-left: -1rem;
   margin-right: -1rem;
   margin-bottom: 20px;
+  width: auto;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
 }
 
 .ribbon-link {
@@ -233,10 +245,24 @@ footer {
   margin: 0 15px;
   font-size: 1.2em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: margin 0.3s ease; /* Smooth transition for margin changes */
 }
 
 .ribbon-link:hover {
   text-decoration: underline;
+}
+
+/* Media query to adjust spacing as the screen shrinks */
+@media (max-width: 768px) {
+  .ribbon-link {
+    margin: 0 10px; /* Reduce margin for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .ribbon-link {
+    margin: 0 5px; /* Further reduce margin for very small screens */
+  }
 }
 
 .separator {
@@ -248,4 +274,12 @@ footer {
   background-color: #75625e;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.no-inner-border .MuiOutlinedInput-root {
+  border: none;
+}
+
+.no-inner-border .MuiOutlinedInput-notchedOutline {
+  border: none;
 }

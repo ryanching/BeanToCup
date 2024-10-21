@@ -12,6 +12,8 @@ const Ribbon = () => {
       <NavLink to="/beans" className="ribbon-link" activeClassName="active-link">Beans</NavLink>
       <span className="separator">|</span>
       <NavLink to="/cups" className="ribbon-link" activeClassName="active-link">Cups</NavLink>
+      <span className="separator">|</span>
+      <NavLink to="/analysis" className="ribbon-link" activeClassName="active-link">Analysis</NavLink>
     </div>
   );
 };

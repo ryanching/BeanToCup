@@ -43,6 +43,7 @@ const Roasts = () => {
               <th>First Cracks Time</th>
               <th>Second Cracks Time</th>
               <th>End Roast Time</th>
+              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +55,7 @@ const Roasts = () => {
                 <td>{roast.firstCracksTime}</td>
                 <td>{roast.secondCracksTime}</td>
                 <td>{roast.endRoastTime}</td>
+                <td>{roast.roastRating}</td>
               </tr>
             ))}
           </tbody>

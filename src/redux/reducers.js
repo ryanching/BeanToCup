@@ -1,5 +1,5 @@
 import { copyWithStructuralSharing } from '@reduxjs/toolkit/query';
-import { SAVE_ROAST, SAVE_BEAN, SAVE_CUP } from './actions';
+import { SAVE_ROAST, SAVE_BEAN, SAVE_CUP, REMOVE_CUP } from './actions';
 // sampleData.js
 export const sampleBeans = [
   { id: 1, name: 'Ethiopian Yirgacheffe', origin: 'Ethiopia', processing: "Washed", elevation: "4000", cost: "7.40", tastingNotes: "Blueberry" },
@@ -14,9 +14,9 @@ export const sampleRoasts = [
 ];
 
 export const sampleCups = [
-  { id: 1, name: 'Morning Cup', roast: 'Morning Roast', brewMethod: "AeroPress", timeOfDay: '08:00', brewTime: '04:00', rating: "4.75" },
-  { id: 2, name: 'Afternoon Cup', roast: 'Evening Bliss', brewMethod: "French Press", timeOfDay: '14:00', brewTime: '03:30', rating: "4.25" },
-  { id: 3, name: 'Evening Cup', roast: 'Afternoon Delight', brewMethod: "Pour Over", timeOfDay: '19:00', brewTime: '05:00', rating: "3.5" },
+  { id: 1, name: 'Morning Cup', roast: 'Morning Roast', brewMethod: "AeroPress", timeOfDay: '08:00', brewTime: '04:00', cupRating: "4.75" },
+  { id: 2, name: 'Afternoon Cup', roast: 'Evening Bliss', brewMethod: "French Press", timeOfDay: '14:00', brewTime: '03:30', cupRating: "4.25" },
+  { id: 3, name: 'Evening Cup', roast: 'Afternoon Delight', brewMethod: "Pour Over", timeOfDay: '19:00', brewTime: '05:00', cupRating: "3.5" },
 ];
 const initialState = {
   roasts: sampleRoasts,
@@ -41,6 +41,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         cups: [...state.cups, action.payload]
       };
+    case REMOVE_CUP:
+    return {
+      ...state,
+      cups: state.cups.filter((_, i) => i !== action.payload),
+    };
     default:
       return state;
   }

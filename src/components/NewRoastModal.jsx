@@ -3,6 +3,7 @@ import { LocalizationProvider, TimeField } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Rating from '@mui/material/Rating';
 
 const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handleRoastChange, handleRoastSave }) => {
   const history = useNavigate();
@@ -81,6 +82,8 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
             className="no-inner-border"
           />
         </LocalizationProvider>
+        <label htmlFor="roastRating">Rating:</label>
+        <Rating name="roastRating" precision={0.25} defaultValue={0} id="roastRating" value={roast.roastRating} size="medium" onChange={handleRoastChange} />
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleRoastSave}>Save</button>
           <button className="styled-button" onClick={closeRoastModal}>Close</button>

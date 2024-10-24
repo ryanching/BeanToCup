@@ -50,13 +50,14 @@ const Analysis = () => {
       <Ribbon />
       <h2>Analysis Page</h2>
       <div>
-        <FormControl fullWidth>
-          <InputLabel id="dataType-label">Data Type</InputLabel>
+        <FormControl fullWidth className="form-control">
+          <InputLabel id="dataType-label" className="form-control">Data Type</InputLabel>
           <Select
             labelId="dataType-label"
             id="dataType"
             value={dataType}
             label="Data Type"
+            className="form-control"
             onChange={handleDataTypeChange}
           >
             {Object.keys(dataTypes).map((type) => (
@@ -64,13 +65,15 @@ const Analysis = () => {
             ))}
           </Select>
         </FormControl>
-        <FormControl fullWidth>
-          <InputLabel id="xAttribute-label">X Attribute</InputLabel>
+        <div>
+        <FormControl fullWidth className="form-control">
+          <InputLabel id="xAttribute-label" className="form-control">X Attribute</InputLabel>
           <Select
             labelId="xAttribute-label"
             id="xAttribute"
             value={xAttribute}
             label="X Attribute"
+            className="form-control"
             onChange={handleXAttributeChange}
           >
             {attributes[dataType].map((attr) => (
@@ -78,13 +81,14 @@ const Analysis = () => {
             ))}
           </Select>
         </FormControl>
-        <FormControl fullWidth>
-          <InputLabel id="yAttribute-label">Y Attribute</InputLabel>
+        <FormControl fullWidth className="form-control">
+          <InputLabel id="yAttribute-label" className="form-control">Y Attribute</InputLabel>
           <Select
             labelId="yAttribute-label"
             id="yAttribute"
             value={yAttribute}
             label="Y Attribute"
+            className="form-control"
             onChange={handleYAttributeChange}
           >
             {attributes[dataType].map((attr) => (
@@ -92,6 +96,7 @@ const Analysis = () => {
             ))}
           </Select>
         </FormControl>
+        </div>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <ScatterChart

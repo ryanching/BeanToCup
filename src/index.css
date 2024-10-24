@@ -283,3 +283,14 @@ footer {
 .no-inner-border .MuiOutlinedInput-notchedOutline {
   border: none;
 }
+
+.form-control {
+  color: white !important;
+  stroke: white;
+  border-color: white;
+  outline-color: white;
+  box-shadow: white;
+  outline: white;
+  max-width: 20em;
+  margin: 1em;
+}

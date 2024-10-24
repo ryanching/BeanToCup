@@ -2,9 +2,7 @@ import React from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, TimeField } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -72,8 +70,8 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
             className="no-inner-border"
           />
         </LocalizationProvider>
-        <label htmlFor="rating">Rating:</label>
-        <Rating name="rating" precision={0.25} defaultValue={2.5} id="rating" value={cup.rating} size="medium" onChange={handleCupChange} />
+        <label htmlFor="cupRating">Rating:</label>
+        <Rating name="cupRating" precision={0.25} defaultValue={2.5} id="cupRating" value={cup.cupRating} size="medium" onChange={handleCupChange} />
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleCupSave}>Save</button>
           <button className="styled-button" onClick={closeCupModal}>Close</button>

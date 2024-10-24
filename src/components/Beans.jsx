@@ -42,6 +42,7 @@ const Beans = () => {
               <th>Elevation</th>
               <th>Cost</th>
               <th>Tasting Notes</th>
+              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
@@ -53,6 +54,7 @@ const Beans = () => {
                 <td>{bean.elevation}</td>
                 <td>{bean.cost}</td>
                 <td>{bean.tastingNotes}</td>
+                <td>{bean.beanRating}</td>
               </tr>
             ))}
           </tbody>

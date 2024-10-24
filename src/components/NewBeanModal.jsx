@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from '@mui/material/Rating';
 
 const NewBeanModal = ({ isBeanModalOpen, closeBeanModal, bean, handleBeanChange, handleBeanSave }) => {
   if (!isBeanModalOpen) return null;
@@ -19,6 +20,8 @@ const NewBeanModal = ({ isBeanModalOpen, closeBeanModal, bean, handleBeanChange,
         <input type="text" id="cost" name="cost" value={bean.cost} onChange={handleBeanChange} />
         <label htmlFor="tastingNotes">Tasting Notes:</label>
         <input type="text" id="tastingNotes" name="tastingNotes" value={bean.tastingNotes} onChange={handleBeanChange} />
+        <label htmlFor="beanRating">Rating:</label>
+        <Rating name="beanRating" precision={0.25} defaultValue={0} id="beanRating" value={bean.beanRating} size="medium" onChange={handleBeanChange} />
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleBeanSave}>Save</button>
           <button className="styled-button" onClick={closeBeanModal}>Close</button>

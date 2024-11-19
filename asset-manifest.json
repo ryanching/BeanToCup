@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/BeanToCup/static/css/main.07d8ff36.css",
-    "main.js": "/BeanToCup/static/js/main.af67842e.js",
-    "index.html": "/BeanToCup/index.html",
-    "main.07d8ff36.css.map": "/BeanToCup/static/css/main.07d8ff36.css.map",
-    "main.af67842e.js.map": "/BeanToCup/static/js/main.af67842e.js.map"
+    "main.css": "/beantocup/static/css/main.07d8ff36.css",
+    "main.js": "/beantocup/static/js/main.af67842e.js",
+    "index.html": "/beantocup/index.html",
+    "main.07d8ff36.css.map": "/beantocup/static/css/main.07d8ff36.css.map",
+    "main.af67842e.js.map": "/beantocup/static/js/main.af67842e.js.map"
   },
   "entrypoints": [
     "static/css/main.07d8ff36.css",

@@ -27,7 +27,7 @@ const Roasts = () => {
       // Logic to open the newRoastModal
       openRoastModal();
     }
-  }, [isNewRoastModalOpen]);
+  }, [isNewRoastModalOpen, openRoastModal]);
 
   return (
     <div>
@@ -38,7 +38,7 @@ const Roasts = () => {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Bean Type</th>
+              <th>Bean</th>
               <th>Roast Level</th>
               <th>First Cracks Time</th>
               <th>Second Cracks Time</th>
@@ -49,8 +49,8 @@ const Roasts = () => {
           <tbody>
             {roasts.map((roast, index) => (
               <tr key={index}>
-                <td>{roast.name}</td>
-                <td>{roast.beanType}</td>
+                <td>{roast.roastName}</td>
+                <td>{roast.beanName}</td>
                 <td>{roast.roastLevel}</td>
                 <td>{roast.firstCracksTime}</td>
                 <td>{roast.secondCracksTime}</td>

@@ -12,11 +12,11 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
   
   const handleRoastChange = (event) => {
     const { value } = event.target;
-    if (value == 'newRoast') {
+    if (value === 'newRoast') {
       closeCupModal();
       history('/roasts?modal=newRoastModal');
     } else {
-      handleCupChange(event);
+      handleCupChange(event, roasts);
     }
   };
 
@@ -40,19 +40,15 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
           />
         </LocalizationProvider>
         <label htmlFor="roast">Roast:</label>
-        <select id="roast" name="roast" value={cup.roast} onChange={handleRoastChange}>
+        <select id="roastName" name="roastName" value={cup.roastName} onChange={handleRoastChange}>
           <option value="">Select Roast</option>
           {roasts.map((roast, index) => (
-            <option key={index} value={roast.name || roast.beanType}>{roast.name || roast.beanType}</option>
+            <option key={index} value={roast.id}>{roast.roastName || roast.beanName || roast.id}</option>
           ))}
           <option value="newRoast">New Roast</option>
         </select>
         <label htmlFor="brewMethod">Brew Method:</label>
         <input type="text" id="brewMethod" name="brewMethod" value={cup.brewMethod} onChange={handleCupChange} />
-        {/* <label htmlFor="body">Body:</label>
-        <input type="text" id="body" name="body" value={cup.body} onChange={handleCupChange} />
-        <label htmlFor="sweetness">Sweetness:</label>
-        <input type="text" id="sweetness" name="sweetness" value={cup.sweetness} onChange={handleCupChange} /> */}
         <label htmlFor="tastingNotes">Tasting Notes:</label>
         <input type="text" id="tastingNotes" name="tastingNotes" value={cup.tastingNotes} onChange={handleCupChange} />
         <label htmlFor="brewTime">Brew Time:</label>

@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { saveRoast, saveBean, saveCup } from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 export const useModalHandlers = () => {
+  const history = useNavigate();
   const [isRoastModalOpen, setIsRoastModalOpen] = useState(false);
   const [isBeanModalOpen, setIsBeanModalOpen] = useState(false);
   const [isCupModalOpen, setIsCupModalOpen] = useState(false);
   const [roast, setRoast] = useState({
     name: '',
-    beanType: '',
+    beanName: '',
+    beanId: '',
     roastLevel: '',
     firstCracksTime: '',
     secondCracksTime: '',
@@ -35,63 +38,67 @@ export const useModalHandlers = () => {
   const dispatch = useDispatch();
 
   const openRoastModal = () => {
-    setRoast({
-      name: '',
-      beanType: '',
-      roastLevel: '',
-      firstCracksTime: '',
-      secondCracksTime: '',
-      endRoastTime: ''
-    });
-    setIsRoastModalOpen(true);
+    if (isRoastModalOpen === false) {
+      setRoast({
+        roastName: '',
+        beanName: '',
+        roastLevel: '',
+        firstCracksTime: '',
+        secondCracksTime: '',
+        endRoastTime: ''
+      });
+      setIsRoastModalOpen(true);
+    }
   };
 
   const closeRoastModal = () => {
     setIsRoastModalOpen(false);
+    history('/roasts');
   };
 
   const openBeanModal = () => {
-    setBean({
-      name: '',
-      origin: '',
-      processing: '',
-      elevation: '',
-      cost: '',
-      tastingNotes: ''
-    });
-    setIsBeanModalOpen(true);
+    if(isBeanModalOpen === false) {
+      setBean({
+        beanName: '',
+        origin: '',
+        processing: '',
+        elevation: '',
+        cost: '',
+        tastingNotes: ''
+      });
+      setIsBeanModalOpen(true);
+    }
   };
 
   const closeBeanModal = () => {
     setIsBeanModalOpen(false);
+    history('/beans');
   };
 
   const openCupModal = () => {
-    setCup({
-      timeOfDay: '',
-      roast: '',
-      brewMethod: '',
-      body: '',
-      sweetness: '',
-      tastingNotes: '',
-      brewTime: ''
-    });
-    setIsCupModalOpen(true);
+    if(isCupModalOpen === false) {
+      setCup({
+        timeOfDay: '',
+        roastName: '',
+        brewMethod: '',
+        body: '',
+        sweetness: '',
+        tastingNotes: '',
+        brewTime: ''
+      });
+      setIsCupModalOpen(true);
+    }
   };
 
   const closeCupModal = () => {
     setIsCupModalOpen(false);
+    history('/cups');
   };
 
   const handleRoastChange = (e) => {
     const { name, value } = e.target;
     setRoast({ ...roast, [name]: value });
-
-    // Open the New Bean modal if "New Bean" is selected
-    if (name === 'beanType' && value === 'newBean') {
-      closeRoastModal();
-      openBeanModal();
-    }
+    
   };
 
   const handleBeanChange = (e) => {

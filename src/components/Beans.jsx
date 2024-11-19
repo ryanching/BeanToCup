@@ -26,7 +26,7 @@ const Beans = () => {
       // Logic to open the newBeanModal
       openBeanModal();
     }
-  }, [isNewBeanModalOpen]);
+  }, [isNewBeanModalOpen, openBeanModal]);
 
   return (
     <div>
@@ -48,7 +48,7 @@ const Beans = () => {
           <tbody>
             {beans.map((bean, index) => (
               <tr key={index}>
-                <td>{bean.name}</td>
+                <td>{bean.beanName}</td>
                 <td>{bean.origin}</td>
                 <td>{bean.processing}</td>
                 <td>{bean.elevation}</td>

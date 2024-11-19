@@ -66,7 +66,7 @@ const Cups = () => {
             {cups.map((cup, index) => (
               <tr key={index}>
                 <td>{cup.timeOfDay}</td>
-                <td>{cup.roast}</td>
+                <td>{cup.roastName}</td>
                 <td>{cup.brewMethod}</td>
                 <td>{cup.body}</td>
                 <td>{cup.sweetness}</td>

@@ -9,15 +9,13 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
   const history = useNavigate();
   if (!isRoastModalOpen) return null;
 
-  const handleBeanTypeChange = (event) => {
+  const handleBeanNameChange = (event, beans) => {
     const { value } = event.target;
-    if (value === 'newBean') {
+    if (value === 'nEWBeANnn') {
       closeRoastModal();
       history('/beans?modal=newBeanModal');
-      
-      
     } else {
-      handleRoastChange(event);
+      handleRoastChange(event, beans);
     }
   };
 
@@ -26,14 +24,14 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
       <div className="modal">
         <h2>New Roast</h2>
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={roast.name} onChange={handleRoastChange} />
-        <label htmlFor="beanType">Bean Type:</label>
-        <select id="beanType" name="beanType" value={roast.beanType} onChange={handleBeanTypeChange}>
-          <option value="">Select Bean Type</option>
+        <input type="text" id="roastName" name="roastName" value={roast.roastName} onChange={handleRoastChange} />
+        <label htmlFor="beanName">Bean Type:</label>
+        <select id="beanName" name="beanName" value={roast.beanName} onChange={(event) => handleBeanNameChange(event, beans)}>
+          <option value="">Select Bean Name</option>
           {beans.map((bean, index) => (
-            <option key={index} value={bean.origin}>{bean.origin}</option>
+            <option key={index} value={bean.id}>{bean.beanName}</option>
           ))}
-          <option value="newBean">New Bean</option>
+          <option value="nEWBeANnn">New Bean</option>
         </select>
         <label htmlFor="roastLevel">Roast Level:</label>
         <input type="text" id="roastLevel" name="roastLevel" value={roast.roastLevel} onChange={handleRoastChange} />

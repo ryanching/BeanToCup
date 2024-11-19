@@ -36,9 +36,9 @@ const Home = () => {
       <Ribbon />
       <h2>Home Page</h2>
       <div className="button-container">
+        <button className="styled-button" onClick={openBeanModal}>New Bean</button>
         <button className="styled-button" onClick={openRoastModal}>New Roast</button>
         <button className="styled-button" onClick={openCupModal}>New Cup</button>
-        <button className="styled-button" onClick={openBeanModal}>New Bean</button>
       </div>
 
       <NewRoastModal

@@ -9,7 +9,7 @@ const NewBeanModal = ({ isBeanModalOpen, closeBeanModal, bean, handleBeanChange,
       <div className="modal">
         <h2>New Bean</h2>
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={bean.name} onChange={handleBeanChange} />
+        <input type="text" id="beanName" name="beanName" value={bean.beanName} onChange={handleBeanChange} />
         <label htmlFor="origin">Origin:</label>
         <input type="text" id="origin" name="origin" value={bean.origin} onChange={handleBeanChange} />
         <label htmlFor="processing">Processing:</label>

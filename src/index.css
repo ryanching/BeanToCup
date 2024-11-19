@@ -226,6 +226,11 @@ footer {
   border-top: 2px solid #dddddd;
 }
 
+.title {
+  /* font-size: 1.5em; */
+  margin-bottom: 1rem;
+  margin-top: -3rem;
+}
 
 .ribbon {
   display: flex;
@@ -292,5 +297,4 @@ footer {
   box-shadow: white;
   outline: white;
   max-width: 20em;
-  margin: 1em;
 }

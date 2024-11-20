@@ -153,6 +153,12 @@ footer {
   text-align: left;
   width: 300px;
   color: #221a1a;
+  margin: 5rem;
+  height: 95%;
+  overflow: auto;
+  scroll-snap-align: start;
+  scrollbar-width: none;
+  padding: '1rem';
 }
 
 .modal h2 {
@@ -175,12 +181,18 @@ footer {
 
 .modal .styled-button {
   margin-top: 20px; /* Add margin to the top of the close button */
+  opacity: 1.0;
 }
 
 .modal-buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  opacity: 0.8;
+  padding: 10px 0;
 }
 
 .roasts-table-container {

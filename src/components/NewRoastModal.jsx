@@ -20,7 +20,7 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={(e) => { if(e.target.className === "modal-overlay") closeRoastModal()}}>
       <div className="modal">
         <h2>New Roast</h2>
         <label htmlFor="name">Name:</label>

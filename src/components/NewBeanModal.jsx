@@ -5,7 +5,7 @@ const NewBeanModal = ({ isBeanModalOpen, closeBeanModal, bean, handleBeanChange,
   if (!isBeanModalOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={(e) => { if(e.target.className === "modal-overlay") closeBeanModal()}}>
       <div className="modal">
         <h2>New Bean</h2>
         <label htmlFor="name">Name:</label>

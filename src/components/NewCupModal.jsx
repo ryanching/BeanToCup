@@ -21,7 +21,7 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={(e) => { if(e.target.className === "modal-overlay") closeCupModal()}}>
       <div className="modal">
         <h2>New Cup</h2>
         <label htmlFor="timeOfDay">Time of Day:</label>

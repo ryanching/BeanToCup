@@ -80,6 +80,8 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
             className="no-inner-border"
           />
         </LocalizationProvider>
+        <label htmlFor="roastNotes">Notes:</label>
+        <input type="text" id="roastNotes" name="roastNotes" value={roast.roastNotes} onChange={handleRoastChange} />
         <label htmlFor="roastRating">Rating:</label>
         <Rating name="roastRating" precision={0.25} defaultValue={0} id="roastRating" value={roast.roastRating} size="medium" onChange={handleRoastChange} />
         <div className="modal-buttons">

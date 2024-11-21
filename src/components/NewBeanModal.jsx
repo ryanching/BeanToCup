@@ -19,7 +19,7 @@ const NewBeanModal = ({ isBeanModalOpen, closeBeanModal, bean, handleBeanChange,
         <label htmlFor="cost">Cost:</label>
         <input type="text" id="cost" name="cost" value={bean.cost} onChange={handleBeanChange} />
         <label htmlFor="tastingNotes">Tasting Notes:</label>
-        <input type="text" id="tastingNotes" name="tastingNotes" value={bean.tastingNotes} onChange={handleBeanChange} />
+        <input type="text" id="beanNotes" name="beanNotes" value={bean.beanNotes} onChange={handleBeanChange} />
         <label htmlFor="beanRating">Rating:</label>
         <Rating name="beanRating" precision={0.25} defaultValue={0} id="beanRating" value={bean.beanRating} size="medium" onChange={handleBeanChange} />
         <div className="modal-buttons">

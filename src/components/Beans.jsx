@@ -32,8 +32,8 @@ const Beans = () => {
     <div>
       <Ribbon />
       <h2>List of Beans</h2>
-      <div class="roasts-table-container">
-        <table className="roasts-table">
+      <div class="data-table-container">
+        <table className="data-table">
           <thead>
             <tr>
               <th>Name</th>
@@ -41,7 +41,7 @@ const Beans = () => {
               <th>Processing</th>
               <th>Elevation</th>
               <th>Cost</th>
-              <th>Tasting Notes</th>
+              <th>Notes</th>
               <th>Rating</th>
             </tr>
           </thead>
@@ -53,7 +53,7 @@ const Beans = () => {
                 <td>{bean.processing}</td>
                 <td>{bean.elevation}</td>
                 <td>{bean.cost}</td>
-                <td>{bean.tastingNotes}</td>
+                <td>{bean.beanNotes}</td>
                 <td>{bean.beanRating}</td>
               </tr>
             ))}

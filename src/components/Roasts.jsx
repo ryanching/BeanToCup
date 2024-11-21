@@ -33,8 +33,8 @@ const Roasts = () => {
     <div>
       <Ribbon />
       <h2>List of Roasts</h2>
-      <div class="roasts-table-container">
-        <table className="roasts-table">
+      <div class="data-table-container">
+        <table className="data-table">
           <thead>
             <tr>
               <th>Name</th>
@@ -43,6 +43,7 @@ const Roasts = () => {
               <th>First Cracks Time</th>
               <th>Second Cracks Time</th>
               <th>End Roast Time</th>
+              <th>Notes</th>
               <th>Rating</th>
             </tr>
           </thead>
@@ -55,6 +56,7 @@ const Roasts = () => {
                 <td>{roast.firstCracksTime}</td>
                 <td>{roast.secondCracksTime}</td>
                 <td>{roast.endRoastTime}</td>
+                <td>{roast.roastNotes}</td>
                 <td>{roast.roastRating}</td>
               </tr>
             ))}

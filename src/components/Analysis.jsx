@@ -60,8 +60,8 @@ const Analysis = () => {
     const median = sortedYValues.length % 2 === 0 ? (sortedYValues[middleIndex - 1] + sortedYValues[middleIndex]) / 2 : sortedYValues[middleIndex];
     return {
       [xAttribute]: item.xValue,
-      [`${yAttribute} Average`]: item.yValueSum / item.count,
-      [`${yAttribute} Median`]: median,
+      [`${yAttribute} Average`]: (item.yValueSum / item.count).toFixed(2),
+      [`${yAttribute} Median`]: median.toFixed(2),
     };
   });
 
@@ -106,10 +106,10 @@ const Analysis = () => {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey={xAttribute} name={xAttribute} stroke="white" label={{value: xAttribute, position: 'bottom' }} />
             <YAxis type="number" name={yAttribute} stroke="white" label={{ value: yAttribute, angle: -90, position: 'insideLeft' }} />
-            <Tooltip />
+            <Tooltip cursor={{fill: 'transparent'}}/>
             <Legend align='center' verticalAlign='top' />
-            <Bar classname= "bar" dataKey={`${yAttribute} Average`} fill="#ffffff" />
-            <Bar dataKey={`${yAttribute} Median`} fill="#b6b6b6" />
+            <Bar classname= "bar" dataKey={`${yAttribute} Average`} fill="#99595f" />
+            <Bar dataKey={`${yAttribute} Median`} fill="#474792" />
           </BarChart>}
       </ResponsiveContainer>
     </div>

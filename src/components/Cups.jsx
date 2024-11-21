@@ -47,16 +47,14 @@ const Cups = () => {
     <div>
       <Ribbon />
       <h2>List of Cups</h2>
-      <div className="roasts-table-container">
-        <table className="roasts-table">
+      <div className="data-table-container">
+        <table className="data-table">
           <thead>
             <tr>
               <th>Time of Day</th>
               <th>Roast</th>
               <th>Brew Method</th>
-              <th>Body</th>
-              <th>Sweetness</th>
-              <th>Tasting Notes</th>
+              <th>Notes</th>
               <th>Brew Time</th>
               <th>Rating</th>
               <th></th>
@@ -68,9 +66,7 @@ const Cups = () => {
                 <td>{cup.timeOfDay}</td>
                 <td>{cup.roastName}</td>
                 <td>{cup.brewMethod}</td>
-                <td>{cup.body}</td>
-                <td>{cup.sweetness}</td>
-                <td>{cup.tastingNotes}</td>
+                <td>{cup.cupNotes}</td>
                 <td>{cup.brewTime}</td>
                 <td>{cup.cupRating}</td>
                 <td>

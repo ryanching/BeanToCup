@@ -50,7 +50,7 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
         <label htmlFor="brewMethod">Brew Method:</label>
         <input type="text" id="brewMethod" name="brewMethod" value={cup.brewMethod} onChange={handleCupChange} />
         <label htmlFor="tastingNotes">Tasting Notes:</label>
-        <input type="text" id="tastingNotes" name="tastingNotes" value={cup.tastingNotes} onChange={handleCupChange} />
+        <input type="textbox" id="cupNotes" name="cupNotes" value={cup.cupNotes} onChange={handleCupChange} />
         <label htmlFor="brewTime">Brew Time:</label>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <TimeField

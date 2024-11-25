@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useModalHandlers } from '../utils/CommonHandlers';
-import Ribbon from './Ribbon';
 import NewRoastModal from './NewRoastModal';
 import '../index.css'; // Assuming you have a CSS file for styling
+import Navigator from './Navigator';
 
 const Roasts = () => {
   const {
@@ -31,9 +31,9 @@ const Roasts = () => {
 
   return (
     <div>
-      <Ribbon />
-      <h2>List of Roasts</h2>
-      <div class="data-table-container">
+      <Navigator />
+      <h2>Roasts</h2>
+      <div className="data-table-container">
         <table className="data-table">
           <thead>
             <tr>

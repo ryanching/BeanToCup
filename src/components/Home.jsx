@@ -4,7 +4,7 @@ import { useModalHandlers } from '../utils/CommonHandlers';
 import NewRoastModal from './NewRoastModal';
 import NewBeanModal from './NewBeanModal';
 import NewCupModal from './NewCupModal';
-import Ribbon from './Ribbon';
+import Navigator from './Navigator';
 
 const Home = () => {
   const {
@@ -33,7 +33,7 @@ const Home = () => {
 
   return (
     <>
-      <Ribbon />
+      <Navigator />
       <h2>Home Page</h2>
       <div className="button-container">
         <button className="styled-button" onClick={openBeanModal}>New Bean</button>

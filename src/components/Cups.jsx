@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useModalHandlers } from '../utils/CommonHandlers';
-import Ribbon from './Ribbon';
 import NewCupModal from './NewCupModal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import '../index.css'; // Assuming you have a CSS file for styling
-import { removeCup } from '../redux/actions';
+import { removeCup, saveCup } from '../redux/actions';
+import Navigator from './Navigator';
+
 
 const Cups = () => {
   const {
@@ -25,6 +26,7 @@ const Cups = () => {
 
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [cupToDelete, setCupToDelete] = useState(null);
+  const [cupToEdit, setCupToEdit] = useState(null);
 
   const openConfirmDialog = (index) => {
     setCupToDelete(index);
@@ -43,10 +45,26 @@ const Cups = () => {
     }
   };
 
+  const editCup = (cup) => {
+    // cup = cups[index];
+    setCupToEdit(cup);
+    openCupModal(cup);
+  };
+
+  const handleCupSaveWithEdit = () => {
+    if (cupToEdit !== null) {
+      dispatch(saveCup({ ...cup, id: cups[cupToEdit].id }));
+      setCupToEdit(null);
+    } else {
+      handleCupSave();
+    }
+    closeCupModal();
+  };
+
   return (
     <div>
-      <Ribbon />
-      <h2>List of Cups</h2>
+      <Navigator />
+      <h2>Cups</h2>
       <div className="data-table-container">
         <table className="data-table">
           <thead>
@@ -73,7 +91,7 @@ const Cups = () => {
                   <IconButton onClick={() => openConfirmDialog(index)}>
                     <DeleteIcon />
                   </IconButton>
-                  <IconButton>
+                  <IconButton onClick={() => editCup(cup)}>
                     <EditIcon />
                   </IconButton>
                 </td>
@@ -90,11 +108,11 @@ const Cups = () => {
         cup={cup}
         roasts={roasts}
         handleCupChange={handleCupChange}
-        handleCupSave={handleCupSave}
+        handleCupSave={handleCupSaveWithEdit}
       />
 
       {isConfirmDialogOpen && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" onClick={(e) => { if(e.target.className === "modal-overlay") closeConfirmDialog()}}>
           <div className="modal">
             <h2>Are you sure you want to delete this cup?</h2>
             <div className="modal-buttons">

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Ribbon from './Ribbon';
 import { useSelector } from 'react-redux';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { ScatterChart, BarChart, Bar, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import Navigator from './Navigator';
 
 const Analysis = () => {
   const [xAttribute, setXAttribute] = useState('');
@@ -30,6 +30,7 @@ const Analysis = () => {
 
   const combinedData = cups.map(cup => {
     const roast = roasts.find(r => r.id === cup.roastId);
+    if(!roast) return {...cup, firstCracksTime: '', secondCracksTime: '', endRoastTime: '', roastRating: ''}; // Is this the correct return value in this case? 
     const bean = beans.find(b => b.id === roast.beanId);
     return { ...cup,
       ...roast,
@@ -67,8 +68,8 @@ const Analysis = () => {
 
   return (
     <div>
-      <Ribbon />
-      <h2>Analysis Page</h2>
+      <Navigator />
+      <h2>Analysis</h2>
       <div style={{ display: 'flex', gap: '1em', justifyContent: 'center'}}>
         <FormControl fullWidth className="form-control" variant="outlined" style={{ flex: 1, fontSize:12}}>
           <InputLabel id="yAttribute-label" className="form-control">Y Axis</InputLabel>

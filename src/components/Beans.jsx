@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useModalHandlers } from '../utils/CommonHandlers';
-import Ribbon from './Ribbon';
+import Navigator from './Navigator';
 import NewBeanModal from './NewBeanModal';
 import '../index.css'; // Assuming you have a CSS file for styling
 
@@ -30,9 +30,9 @@ const Beans = () => {
 
   return (
     <div>
-      <Ribbon />
-      <h2>List of Beans</h2>
-      <div class="data-table-container">
+      <Navigator/>
+      <h2>Beans</h2>
+      <div className="data-table-container">
         <table className="data-table">
           <thead>
             <tr>

@@ -41,7 +41,7 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
         </LocalizationProvider>
         <label htmlFor="roast">Roast:</label>
         <select id="roastName" name="roastName" value={cup.roastName} onChange={handleRoastChange}>
-          <option value="">Select Roast</option>
+          <option value={cup.roastName}>{cup.roastName === "" ? "Select Roast" : cup.roastName}</option>
           {roasts.map((roast, index) => (
             <option key={index} value={roast.id}>{roast.roastName || roast.beanName || roast.id}</option>
           ))}
@@ -67,7 +67,7 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
           />
         </LocalizationProvider>
         <label htmlFor="cupRating">Rating:</label>
-        <Rating name="cupRating" precision={0.25} defaultValue={2.5} id="cupRating" value={cup.cupRating} size="medium" onChange={handleCupChange} />
+        <Rating name="cupRating" precision={0.5} defaultValue={2.5} id="cupRating" value={parseFloat(cup.cupRating)} size="medium" onChange={handleCupChange} />
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleCupSave}>Save</button>
           <button className="styled-button" onClick={closeCupModal}>Close</button>

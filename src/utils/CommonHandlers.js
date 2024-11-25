@@ -75,16 +75,18 @@ export const useModalHandlers = () => {
     history('/beans');
   };
 
-  const openCupModal = () => {
+  const openCupModal = (cup) => {
     if(isCupModalOpen === false) {
       setCup({
-        timeOfDay: '',
-        roastName: '',
-        brewMethod: '',
-        body: '',
-        sweetness: '',
-        tastingNotes: '',
-        brewTime: ''
+        timeOfDay: cup.timeOfDay ?? '',
+        roastName: cup.roastName ?? '',
+        brewMethod: cup.brewMethod ?? 'test',
+        cupNotes: cup.cupNotes ?? '',
+        body: cup.body ?? '',
+        sweetness: cup.sweetness ??'',
+        tastingNotes: cup.tastingNotes ?? '',
+        brewTime: cup.brewTime ?? '',
+        cupRating: cup.cupRating ?? ''
       });
       setIsCupModalOpen(true);
     }

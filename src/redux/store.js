@@ -3,9 +3,9 @@ import reducer from './reducers';
 
 const sampleBeans = [
   { id: 1, beanName: 'Ethiopian Yirgacheffe', origin: 'Ethiopia', processing: "Washed", beanNotes: "Good bean with lots of berry notes", elevation: "4000", cost: "7.40", tastingNotes: "Blueberry", beanRating: "4.0" },
-  { id: 2, beanName: 'Colombian Supremo', origin: 'Colombia', processing: "Natural", elevation: "1530", cost: "5.50", tastingNotes: "Sweet apple", beanRating: "4.9" },
-  { id: 3, beanName: 'Guatemalan Antigua', origin: 'Guatemala', processing: "Honey", elevation: "1120", cost: "4.30", tastingNotes: "Caramel, oak", beanRating: "4.5" },
-  { id: 10, beanName: 'Colombian Double Ferment', origin: 'Colombia', processing: "Natural", elevation: "1700", cost: "6.50", tastingNotes: "Fruit, grape jam", beanRating: "4.5" },
+  { id: 2, beanName: 'Colombian Supremo', origin: 'Colombia', processing: "Natural", elevation: "1530", cost: "5.50", beanNotes: "Sweet apple", beanRating: "4.9" },
+  { id: 3, beanName: 'Guatemalan Antigua', origin: 'Guatemala', processing: "Honey", elevation: "1120", cost: "4.30", beanNotes: "Caramel, oak", beanRating: "4.5" },
+  { id: 10, beanName: 'Colombian Double Ferment', origin: 'Colombia', processing: "Natural", elevation: "1700", cost: "6.50", beanNotes: "Fruit, grape jam", beanRating: "4.5" },
 ];
 
 const sampleRoasts = [

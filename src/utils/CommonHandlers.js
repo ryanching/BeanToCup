@@ -37,42 +37,33 @@ export const useModalHandlers = () => {
 
   const dispatch = useDispatch();
 
-  const openRoastModal = () => {
+  const openRoastModal = (roast) => {
     if (isRoastModalOpen === false) {
       setRoast({
-        roastName: '',
-        beanName: '',
-        roastLevel: '',
-        firstCracksTime: '',
-        secondCracksTime: '',
-        endRoastTime: ''
+        roastName: roast.roastName ?? '',
+        beanName: roast.beanName ?? '',
+        roastLevel: roast.roastLevel ?? '',
+        firstCracksTime: roast.firstCracksTime ?? '',
+        secondCracksTime: roast.secondCracksTime ?? '',
+        endRoastTime: roast.endRoastTime ?? '',
       });
       setIsRoastModalOpen(true);
     }
   };
 
-  const closeRoastModal = () => {
-    setIsRoastModalOpen(false);
-    history('/roasts');
-  };
-
-  const openBeanModal = () => {
+  const openBeanModal = (bean) => {
     if(isBeanModalOpen === false) {
       setBean({
-        beanName: '',
-        origin: '',
-        processing: '',
-        elevation: '',
-        cost: '',
-        tastingNotes: ''
+        beanName: bean.beanName ?? '',
+        origin: bean.origin ?? '',
+        processing: bean.processing ?? '',
+        elevation: bean.elevation ?? '',
+        cost: bean.cost ?? '',
+        beanNotes: bean.beanNotes ?? '',
+        beanRating: bean.beanRating ?? '',
       });
       setIsBeanModalOpen(true);
     }
-  };
-
-  const closeBeanModal = () => {
-    setIsBeanModalOpen(false);
-    history('/beans');
   };
 
   const openCupModal = (cup) => {
@@ -92,9 +83,19 @@ export const useModalHandlers = () => {
     }
   };
 
+  const closeBeanModal = () => {
+    setIsBeanModalOpen(false);
+    history('/beans');
+  };
+
   const closeCupModal = () => {
     setIsCupModalOpen(false);
     history('/cups');
+  };
+  
+  const closeRoastModal = () => {
+    setIsRoastModalOpen(false);
+    history('/roasts');
   };
 
   const handleRoastChange = (e) => {

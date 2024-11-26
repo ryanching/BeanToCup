@@ -2,7 +2,8 @@ export const SAVE_ROAST = 'SAVE_ROAST';
 export const SAVE_BEAN = 'SAVE_BEAN';
 export const SAVE_CUP = 'SAVE_CUP';
 export const REMOVE_CUP = 'REMOVE_CUP';
-export const UPDATE_CUP = 'UPDATE_CUP';
+export const REMOVE_BEAN = 'REMOVE_BEAN';
+export const REMOVE_ROAST = 'REMOVE_ROAST';
 
 export const saveRoast = (roast) => ({
   type: SAVE_ROAST,
@@ -24,7 +25,12 @@ export const removeCup = (index) => ({
   payload: index,
 });
 
-export const updateCup = (index, updatedCup) => ({
-  type: 'UPDATE_CUP',
-  payload: { index, updatedCup },
+export const removeBean = (index) => ({
+  type: 'REMOVE_BEAN',
+  payload: index,
+});
+
+export const removeRoast = (index) => ({
+  type: 'REMOVE_ROAST',
+  payload: index,
 });

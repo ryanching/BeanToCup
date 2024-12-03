@@ -53,7 +53,7 @@ const Cups = () => {
 
   const handleCupSaveWithEdit = () => {
     if (cupToEdit !== null) {
-      dispatch(saveCup({ ...cup, id: cups[cupToEdit].id }));
+      dispatch(saveCup({ ...cup, id: cupToEdit.id }));
       setCupToEdit(null);
     } else {
       handleCupSave();

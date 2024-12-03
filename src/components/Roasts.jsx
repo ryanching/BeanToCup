@@ -80,6 +80,7 @@ const Roasts = () => {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Roast Date</th>
               <th>Bean</th>
               <th>Roast Level</th>
               <th>First Cracks Time</th>
@@ -94,6 +95,7 @@ const Roasts = () => {
             {roasts.map((roast, index) => (
               <tr key={index}>
                 <td>{roast.roastName}</td>
+                <td>{roast.roastDate}</td>
                 <td>{roast.beanName}</td>
                 <td>{roast.roastLevel}</td>
                 <td>{roast.firstCracksTime}</td>

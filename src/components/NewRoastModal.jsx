@@ -15,7 +15,9 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
       closeRoastModal();
       history('/beans?modal=newBeanModal');
     } else {
-      handleRoastChange(event, beans);
+      const beanName = event.target.selectedOptions[0].text;
+      const beanId = event.target.value;
+      handleRoastChange({beanId, beanName});
     }
   };
 
@@ -25,9 +27,24 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
         <h2>New Roast</h2>
         <label htmlFor="name">Name:</label>
         <input type="text" id="roastName" name="roastName" value={roast.roastName} onChange={handleRoastChange} />
-        <label htmlFor="beanName">Bean Type:</label>
+        <label htmlFor="roastDate">Roast Date:</label>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <TimeField
+            id="roastDate"
+            name="roastDate"
+            value={roast.roastDate ? dayjs(roast.roastDate) : dayjs()}
+            onChange={(newValue) => {
+              const formattedDate = dayjs(newValue).format('YYYY-MM-DD');
+              handleRoastChange({ target: { name: 'roastDate', value: formattedDate } });
+            }}
+            defaultValue={dayjs()}
+            format="YYYY-MM-DD"
+            className="no-inner-border"
+          />
+        </LocalizationProvider>
+        <label htmlFor="beanName">Bean:</label>
         <select id="beanName" name="beanName" value={roast.beanName} onChange={(event) => handleBeanNameChange(event, beans)}>
-          <option value="">Select Bean Name</option>
+          <option value="">{roast.beanName === "" ? "Select Bean" : roast.beanName}</option>
           {beans.map((bean, index) => (
             <option key={index} value={bean.id}>{bean.beanName}</option>
           ))}
@@ -83,7 +100,7 @@ const NewRoastModal = ({ isRoastModalOpen ,closeRoastModal, roast, beans, handle
         <label htmlFor="roastNotes">Notes:</label>
         <input type="text" id="roastNotes" name="roastNotes" value={roast.roastNotes} onChange={handleRoastChange} />
         <label htmlFor="roastRating">Rating:</label>
-        <Rating name="roastRating" precision={0.25} defaultValue={0} id="roastRating" value={roast.roastRating} size="medium" onChange={handleRoastChange} />
+        <Rating name="roastRating" precision={0.25} defaultValue={0} id="roastRating" value={parseFloat(roast.roastRating)} size="medium" onChange={handleRoastChange} />
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleRoastSave}>Save</button>
           <button className="styled-button" onClick={closeRoastModal}>Close</button>

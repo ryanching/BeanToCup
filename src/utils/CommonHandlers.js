@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { saveRoast, saveBean, saveCup } from '../redux/actions';
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 export const useModalHandlers = () => {
   const history = useNavigate();
@@ -32,7 +33,9 @@ export const useModalHandlers = () => {
     body: '',
     sweetness: '',
     tastingNotes: '',
-    brewTime: ''
+    brewTime: '',
+    roastName: '', 
+    roastId: '',
   });
 
   const dispatch = useDispatch();
@@ -40,12 +43,15 @@ export const useModalHandlers = () => {
   const openRoastModal = (roast) => {
     if (isRoastModalOpen === false) {
       setRoast({
-        roastName: roast.roastName ?? '',
-        beanName: roast.beanName ?? '',
-        roastLevel: roast.roastLevel ?? '',
-        firstCracksTime: roast.firstCracksTime ?? '',
-        secondCracksTime: roast.secondCracksTime ?? '',
-        endRoastTime: roast.endRoastTime ?? '',
+        roastName: roast?.roastName ?? '',
+        roastDate: roast?.roastDate ?? `${dayjs().format('YYYY-MM-DD')}`,
+        beanName: roast?.beanName ?? '',
+        roastLevel: roast?.roastLevel ?? '',
+        firstCracksTime: roast?.firstCracksTime ?? '',
+        secondCracksTime: roast?.secondCracksTime ?? '',
+        endRoastTime: roast?.endRoastTime ?? '',
+        roastNotes: roast?.roastNotes ?? '',
+        roastRating: roast?.roastRating
       });
       setIsRoastModalOpen(true);
     }
@@ -54,13 +60,13 @@ export const useModalHandlers = () => {
   const openBeanModal = (bean) => {
     if(isBeanModalOpen === false) {
       setBean({
-        beanName: bean.beanName ?? '',
-        origin: bean.origin ?? '',
-        processing: bean.processing ?? '',
-        elevation: bean.elevation ?? '',
-        cost: bean.cost ?? '',
-        beanNotes: bean.beanNotes ?? '',
-        beanRating: bean.beanRating ?? '',
+        beanName: bean?.beanName ?? '',
+        origin: bean?.origin ?? '',
+        processing: bean?.processing ?? '',
+        elevation: bean?.elevation ?? '',
+        cost: bean?.cost ?? '',
+        beanNotes: bean?.beanNotes ?? '',
+        beanRating: bean?.beanRating ?? '',
       });
       setIsBeanModalOpen(true);
     }
@@ -69,15 +75,15 @@ export const useModalHandlers = () => {
   const openCupModal = (cup) => {
     if(isCupModalOpen === false) {
       setCup({
-        timeOfDay: cup.timeOfDay ?? '',
-        roastName: cup.roastName ?? '',
-        brewMethod: cup.brewMethod ?? 'test',
-        cupNotes: cup.cupNotes ?? '',
-        body: cup.body ?? '',
-        sweetness: cup.sweetness ??'',
-        tastingNotes: cup.tastingNotes ?? '',
-        brewTime: cup.brewTime ?? '',
-        cupRating: cup.cupRating ?? ''
+        timeOfDay: cup?.timeOfDay ?? `${dayjs().format('YYYY-MM-DD')} ${dayjs().format('h:mm A')}`,
+        roastName: cup?.roastName ?? '',
+        brewMethod: cup?.brewMethod ?? '',
+        cupNotes: cup?.cupNotes ?? '',
+        body: cup?.body ?? '',
+        sweetness: cup?.sweetness ??'',
+        tastingNotes: cup?.tastingNotes ?? '',
+        brewTime: cup?.brewTime ?? '',
+        cupRating: cup?.cupRating ?? ''
       });
       setIsCupModalOpen(true);
     }
@@ -99,8 +105,13 @@ export const useModalHandlers = () => {
   };
 
   const handleRoastChange = (e) => {
-    const { name, value } = e.target;
-    setRoast({ ...roast, [name]: value });
+    if (e.target) {
+      const { name, value } = e.target;
+      setRoast({ ...roast, [name]: value });
+    }
+    else{
+      setRoast({...roast, ...e})
+    }
     
   };
 
@@ -110,8 +121,13 @@ export const useModalHandlers = () => {
   };
 
   const handleCupChange = (e) => {
-    const { name, value } = e.target;
-    setCup({ ...cup, [name]: value });
+    if (e.target) {
+      const { name, value } = e.target;
+      setCup({ ...cup, [name]: value });
+    }
+    else{
+      setCup({...cup, ...e})
+    }
   };
 
   const handleRoastSave = () => {

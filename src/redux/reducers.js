@@ -10,7 +10,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_ROAST:
-      const bean = state.beans.find((bean) => (bean.id) === (action.payload.beanName));
+      const bean = state.beans.find((bean) => bean.id.toString() === action.payload.beanId || bean.id.toString() === action.payload.beanName || bean.beanName === action.payload.beanName);
       action.payload.beanName = bean.beanName;
       const existingRoastIndex = state.roasts.findIndex(roast => roast.id === action.payload.id);
       if (action.payload.id && existingRoastIndex > -1) {
@@ -42,7 +42,7 @@ const reducer = (state = initialState, action) => {
         beans: [...state.beans, { ...action.payload, id: uuidv4() }]
       };
     case SAVE_CUP:
-      const roast = state.roasts.find((roast) => parseInt(roast.id) === parseInt(action.payload.roastName));
+      const roast = state.roasts.find((roast) => roast.id.toString() === action.payload.roastId || roast.id.toString() === action.payload.roastName || roast.roastName === action.payload.roastName);
       action.payload.roastName = roast.roastName;
       const existingCupIndex = state.cups.findIndex(cup => cup.id === action.payload.id);
       if (action.payload.id && existingCupIndex > -1) {

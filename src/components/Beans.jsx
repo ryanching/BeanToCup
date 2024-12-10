@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { removeBean, saveBean } from '../redux/actions';
 import { useModalHandlers } from '../utils/CommonHandlers';
-import Ribbon from './Ribbon';
+import Navigator from './Navigator'; 
 import NewBeanModal from './NewBeanModal';
 import '../index.css'; // Assuming you have a CSS file for styling
 
@@ -71,7 +71,7 @@ const Beans = () => {
 
   return (
     <div>
-      <Ribbon />
+      <Navigator />
       <h2>List of Beans</h2>
       <div className="data-table-container">
         <table className="data-table">

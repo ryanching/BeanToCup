@@ -27,6 +27,8 @@ const HamburgerMenu = () => {
           <li><Link to="/roasts" onClick={toggleMenu}>Roasts</Link></li>
           <li><Link to="/cups" onClick={toggleMenu}>Cups</Link></li>
           <li><Link to="/analysis" onClick={toggleMenu}>Analysis</Link></li>
+          {/* <NavLink to="/profile" className="ribbon-link" activeclassname="active-link" style={{marginRight: '20px'}}>Profile</NavLink> */}
+          <li><Link to="/profile" onClick={toggleMenu}>Profile</Link></li>
         </ul>
       </nav>
     </>

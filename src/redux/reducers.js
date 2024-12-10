@@ -1,4 +1,4 @@
-import { SAVE_ROAST, SAVE_BEAN, SAVE_CUP, REMOVE_CUP, REMOVE_BEAN, REMOVE_ROAST } from './actions';
+import { SAVE_ROAST, SAVE_BEAN, SAVE_CUP, REMOVE_CUP, REMOVE_BEAN, REMOVE_ROAST, IMPORT_DATA, } from './actions';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
@@ -9,6 +9,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case IMPORT_DATA:
+      return {
+        ...state,
+        beans: [...state.beans, ...action.payload.beans],
+        roasts: [...state.roasts, ...action.payload.roasts],
+        cups: [...state.cups, ...action.payload.cups],
+      };
     case SAVE_ROAST:
       const bean = state.beans.find((bean) => bean.id.toString() === action.payload.beanId || bean.id.toString() === action.payload.beanName || bean.beanName === action.payload.beanName);
       action.payload.beanName = bean.beanName;

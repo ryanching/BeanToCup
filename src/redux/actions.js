@@ -4,6 +4,12 @@ export const SAVE_CUP = 'SAVE_CUP';
 export const REMOVE_CUP = 'REMOVE_CUP';
 export const REMOVE_BEAN = 'REMOVE_BEAN';
 export const REMOVE_ROAST = 'REMOVE_ROAST';
+export const IMPORT_DATA = 'IMPORT_DATA';
+
+export const importData = (data) => ({
+  type: IMPORT_DATA,
+  payload: data,
+});
 
 export const saveRoast = (roast) => ({
   type: SAVE_ROAST,

@@ -4,6 +4,7 @@
   "homepage": "https://ryanching.github.io/BeanToCup",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@date-io/dayjs": "^3.0.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",

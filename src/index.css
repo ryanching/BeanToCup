@@ -220,7 +220,7 @@ footer {
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .data-table-container {
-    max-height: calc(100vh - 14rem); /* Larger max height for mobile devices */
+    max-height: calc(100vh - 13rem); /* Larger max height for mobile devices */
   }
 }
 
@@ -253,6 +253,7 @@ footer {
 .data-table th,
 .data-table td {
   padding: 12px 15px;
+  font: 1em 'Arial', Roboto;
   text-align: left;
 }
 

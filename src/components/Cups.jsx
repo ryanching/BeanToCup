@@ -66,7 +66,7 @@ const Cups = () => {
       <Navigator />
       <h2>Cups</h2>
       <div className="data-table-container">
-        <table className="data-table">
+      <table className="data-table">
           <thead>
             <tr>
               <th>Time of Day</th>
@@ -75,6 +75,11 @@ const Cups = () => {
               <th>Notes</th>
               <th>Brew Time</th>
               <th>Rating</th>
+              <th>Aroma</th>
+              <th>Acidity</th>
+              <th>Sweetness</th>
+              <th>Body</th>
+              <th>Finish</th>
               <th></th>
             </tr>
           </thead>
@@ -87,6 +92,26 @@ const Cups = () => {
                 <td>{cup.cupNotes}</td>
                 <td>{cup.brewTime}</td>
                 <td>{cup.cupRating}</td>
+                <td>
+                  Intensity: {cup.cupAromaIntensity}<br />
+                  Quality: {cup.cupAromaQuality}
+                </td>
+                <td>
+                  Intensity: {cup.cupAcidityIntensity}<br />
+                  Quality: {cup.cupAcidityQuality}
+                </td>
+                <td>
+                  Intensity: {cup.cupSweetnessIntensity}<br />
+                  Quality: {cup.cupSweetnessQuality}
+                </td>
+                <td>
+                  Intensity: {cup.cupBodyIntensity}<br />
+                  Quality: {cup.cupBodyQuality}
+                </td>
+                <td>
+                  Intensity: {cup.cupFinishIntensity}<br />
+                  Quality: {cup.cupFinishQuality}
+                </td>
                 <td>
                   <IconButton onClick={() => openConfirmDialog(index)}>
                     <DeleteIcon />

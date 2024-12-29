@@ -108,22 +108,71 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
           />
         </LocalizationProvider>
         <label htmlFor="cupRating">Overall Rating:</label>
-        <Rating name="cupRating" precision={0.5} defaultValue={5} max={10} id="cupRating" value={parseFloat(cup.cupRating)} size="medium" onChange={handleCupChange} />
-        <Accordion>
+        <Rating name="cupRating" precision={0.5} defaultValue={5} max={5} id="cupRating" value={parseFloat(cup.cupRating)} size="medium" onChange={handleCupChange} />
+        <Accordion style={{ width: '105%', marginLeft:'-6px'}}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             Sub Ratings
           </AccordionSummary>
           <AccordionDetails>
-            <label htmlFor="cupAroma">Aroma:</label>
-            <Rating name="cupAroma" precision={0.5} defaultValue={5} max={10} id="cupAroma" value={parseFloat(cup.cupAroma)} size="small" onChange={handleCupChange} />
-            <label htmlFor="cupAcidity">Acidity:</label>
-            <Rating name="cupAcidity" precision={0.5} defaultValue={5} max={10} id="cupAcidity" value={parseFloat(cup.cupAcidity)} size="small" onChange={handleCupChange} />
-            <label htmlFor="cupSweetness">Sweetness:</label>
-            <Rating name="cupSweetness" precision={0.5} defaultValue={5} max={10} id="cupSweetness" value={parseFloat(cup.cupSweetness)} size="small" onChange={handleCupChange} />
-            <label htmlFor="cupBody">Body:</label>
-            <Rating name="cupBody" precision={0.5} defaultValue={5} max={10} id="cupBody" value={parseFloat(cup.cupBody)} size="small" onChange={handleCupChange} />
-            <label htmlFor="cupFinish">Finish:</label>
-            <Rating name="cupFinish" precision={0.5} defaultValue={5} max={10} id="cupFinish" value={parseFloat(cup.cupFinish)} size="small" onChange={handleCupChange} />
+            <div>
+              <label htmlFor="cupAroma">Aroma:</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupAromaIntensity" style={{ fontSize: '0.8em', marginRight: '8px' }}>Intensity:</label>
+                <Rating name="cupAromaIntensity" precision={0.5} defaultValue={5} max={5} id="cupAromaIntensity" value={parseFloat(cup.cupAromaIntensity)} size="small" onChange={handleCupChange} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupAromaQuality" style={{ fontSize: '0.8em', marginRight: '8px' }}>Quality:</label>
+                <Rating name="cupAromaQuality" precision={0.5} defaultValue={5} max={5} id="cupAromaQuality" value={parseFloat(cup.cupAromaQuality)} size="small" onChange={handleCupChange} />
+              </div>
+            </div>
+            <hr />
+            <div>
+              <label htmlFor="cupAcidity">Acidity:</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupAcidityIntensity" style={{ fontSize: '0.8em', marginRight: '8px' }}>Intensity:</label>
+                <Rating name="cupAcidityIntensity" precision={0.5} defaultValue={5} max={5} id="cupAcidityIntensity" value={parseFloat(cup.cupAcidityIntensity)} size="small" onChange={handleCupChange} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupAcidityQuality" style={{ fontSize: '0.8em', marginRight: '8px' }}>Quality:</label>
+                <Rating name="cupAcidityQuality" precision={0.5} defaultValue={5} max={5} id="cupAcidityQuality" value={parseFloat(cup.cupAcidityQuality)} size="small" onChange={handleCupChange} />
+              </div>
+            </div>
+            <hr />
+            <div>
+              <label htmlFor="cupSweetness">Sweetness:</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupSweetnessIntensity" style={{ fontSize: '0.8em', marginRight: '8px' }}>Intensity:</label>
+                <Rating name="cupSweetnessIntensity" precision={0.5} defaultValue={5} max={5} id="cupSweetnessIntensity" value={parseFloat(cup.cupSweetnessIntensity)} size="small" onChange={handleCupChange} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupSweetnessQuality" style={{ fontSize: '0.8em', marginRight: '8px' }}>Quality:</label>
+                <Rating name="cupSweetnessQuality" precision={0.5} defaultValue={5} max={5} id="cupSweetnessQuality" value={parseFloat(cup.cupSweetnessQuality)} size="small" onChange={handleCupChange} />
+              </div>
+            </div>
+            <hr />
+            <div>
+              <label htmlFor="cupBody">Body:</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupBodyIntensity" style={{ fontSize: '0.8em', marginRight: '8px' }}>Intensity:</label>
+                <Rating name="cupBodyIntensity" precision={0.5} defaultValue={5} max={5} id="cupBodyIntensity" value={parseFloat(cup.cupBodyIntensity)} size="small" onChange={handleCupChange} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupBodyQuality" style={{ fontSize: '0.8em', marginRight: '8px' }}>Quality:</label>
+                <Rating name="cupBodyQuality" precision={0.5} defaultValue={5} max={5} id="cupBodyQuality" value={parseFloat(cup.cupBodyQuality)} size="small" onChange={handleCupChange} />
+              </div>
+            </div>
+            <hr />
+            <div>
+              <label htmlFor="cupFinish">Finish:</label>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupFinishIntensity" style={{ fontSize: '0.8em', marginRight: '8px' }}>Intensity:</label>
+                <Rating name="cupFinishIntensity" precision={0.5} defaultValue={5} max={5} id="cupFinishIntensity" value={parseFloat(cup.cupFinishIntensity)} size="small" onChange={handleCupChange} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <label htmlFor="cupFinishQuality" style={{ fontSize: '0.8em', marginRight: '8px' }}>Quality:</label>
+                <Rating name="cupFinishQuality" precision={0.5} defaultValue={5} max={5} id="cupFinishQuality" value={parseFloat(cup.cupFinishQuality)} size="small" onChange={handleCupChange} />
+              </div>
+            </div>
           </AccordionDetails>
         </Accordion>
         <div className="modal-buttons">

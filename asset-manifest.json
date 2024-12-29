@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/BeanToCup/static/css/main.60851ea3.css",
-    "main.js": "/BeanToCup/static/js/main.1159688d.js",
+    "main.css": "/BeanToCup/static/css/main.3e3ac461.css",
+    "main.js": "/BeanToCup/static/js/main.15a894c0.js",
     "index.html": "/BeanToCup/index.html",
-    "main.60851ea3.css.map": "/BeanToCup/static/css/main.60851ea3.css.map",
-    "main.1159688d.js.map": "/BeanToCup/static/js/main.1159688d.js.map"
+    "main.3e3ac461.css.map": "/BeanToCup/static/css/main.3e3ac461.css.map",
+    "main.15a894c0.js.map": "/BeanToCup/static/js/main.15a894c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.60851ea3.css",
-    "static/js/main.1159688d.js"
+    "static/css/main.3e3ac461.css",
+    "static/js/main.15a894c0.js"
   ]
 }

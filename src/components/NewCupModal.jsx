@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DateField, TimeField } from '@mui/x-date-pickers';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import dayjs from 'dayjs';
 import Rating from '@mui/material/Rating';
 import { useNavigate } from 'react-router-dom';
@@ -103,8 +107,25 @@ const NewCupModal = ({ isCupModalOpen, closeCupModal, cup, roasts, handleCupChan
             className="no-inner-border"
           />
         </LocalizationProvider>
-        <label htmlFor="cupRating">Rating:</label>
-        <Rating name="cupRating" precision={0.5} defaultValue={2.5} id="cupRating" value={parseFloat(cup.cupRating)} size="medium" onChange={handleCupChange} />
+        <label htmlFor="cupRating">Overall Rating:</label>
+        <Rating name="cupRating" precision={0.5} defaultValue={5} max={10} id="cupRating" value={parseFloat(cup.cupRating)} size="medium" onChange={handleCupChange} />
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            Sub Ratings
+          </AccordionSummary>
+          <AccordionDetails>
+            <label htmlFor="cupAroma">Aroma:</label>
+            <Rating name="cupAroma" precision={0.5} defaultValue={5} max={10} id="cupAroma" value={parseFloat(cup.cupAroma)} size="small" onChange={handleCupChange} />
+            <label htmlFor="cupAcidity">Acidity:</label>
+            <Rating name="cupAcidity" precision={0.5} defaultValue={5} max={10} id="cupAcidity" value={parseFloat(cup.cupAcidity)} size="small" onChange={handleCupChange} />
+            <label htmlFor="cupSweetness">Sweetness:</label>
+            <Rating name="cupSweetness" precision={0.5} defaultValue={5} max={10} id="cupSweetness" value={parseFloat(cup.cupSweetness)} size="small" onChange={handleCupChange} />
+            <label htmlFor="cupBody">Body:</label>
+            <Rating name="cupBody" precision={0.5} defaultValue={5} max={10} id="cupBody" value={parseFloat(cup.cupBody)} size="small" onChange={handleCupChange} />
+            <label htmlFor="cupFinish">Finish:</label>
+            <Rating name="cupFinish" precision={0.5} defaultValue={5} max={10} id="cupFinish" value={parseFloat(cup.cupFinish)} size="small" onChange={handleCupChange} />
+          </AccordionDetails>
+        </Accordion>
         <div className="modal-buttons">
           <button className="styled-button" onClick={handleCupSave}>Save</button>
           <button className="styled-button" onClick={closeCupModal}>Close</button>
